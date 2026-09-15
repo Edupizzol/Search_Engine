@@ -21,7 +21,7 @@ public class Crawler {
         }
     }
 
-    private static final int MAX_PAGES = 100;
+    private static final int MAX_PAGES = 10;
     private static final int DEPTH = 3;
     private static final  long DELAY = 500;
     private static final String ALLOWED_DOMAIN = "pt.wikipedia.org";
@@ -35,7 +35,9 @@ public class Crawler {
     }
 
     private boolean isArticleLink(String url) {
-        return url.contains("://" + ALLOWED_DOMAIN + "/wiki/") && !url.substring(url.indexOf("/wiki/") + 6).contains(":");
+        return url.contains("://" + ALLOWED_DOMAIN + "/wiki/")
+                && !url.substring(url.indexOf("/wiki/") + 6).contains(":")
+                && !url.contains("action=edit");
     }
 
     private String downloadPage(String url) throws IOException, InterruptedException{
