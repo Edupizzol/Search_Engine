@@ -45,6 +45,13 @@ public class Token {
         return newTokens;
     }
 
+    public static void main(String[] args) {
+        Token tokenizer = new Token();
+        String texto = "Java é uma linguagem de programação orientada a objetos, criada pela Sun Microsystems em 1995.";
 
+        List<String> tokens = tokenizer.tokenizer(texto);
+
+        System.out.println("Tokens: " + tokens);
+    }
 
 }
