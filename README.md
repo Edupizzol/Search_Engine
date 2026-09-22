@@ -17,7 +17,7 @@ A maioria dos projetos de "search engine" para portfólio delega a indexação e
 ## Status do projeto
 
 - [x] **Fase 1 — Crawler**: BFS a partir de uma seed, restrito ao domínio `pt.wikipedia.org`, com extração de texto/título/links via Jsoup
-- [ ] **Fase 2 — Índice invertido e ranking** (TF-IDF/BM25, implementado manualmente)
+- [x] **Fase 2 — Índice invertido e ranking** (TF-IDF/BM25, implementado manualmente)
 - [ ] **Fase 3 — API REST** (Spring Boot + persistência em MySQL)
 - [ ] **Fase 4 — Frontend** (React)
 - [ ] **Fase 5 — Autenticação, histórico de busca, painel admin** (Spring Security)
