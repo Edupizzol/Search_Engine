@@ -33,4 +33,8 @@ public class Index {
         return result;
     }
 
+    public List<Posting> searchWord(Map<String,List<Posting>> index, String word){
+        return index.getOrDefault(word, new ArrayList<>());
+    }
+
 }
