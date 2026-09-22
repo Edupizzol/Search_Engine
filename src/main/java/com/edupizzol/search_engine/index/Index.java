@@ -1,4 +1,5 @@
 package com.edupizzol.search_engine.index;
+import com.edupizzol.search_engine.crawler.Crawler;
 import com.edupizzol.search_engine.crawler.Document;
 
 import java.util.ArrayList;

@@ -1,0 +1,31 @@
+DROP DATABASE IF EXISTS search_engine;
+CREATE DATABASE IF NOT EXISTS search_engine;
+USE search_engine;
+
+CREATE TABLE DOCUMENT (
+    idDocument INT AUTO_INCREMENT,
+    urlDocument VARCHAR(2000) NOT NULL,
+    titleDocument VARCHAR(500) NOT NULL,
+    textDocument MEDIUMTEXT NOT NULL,
+    CONSTRAINT pk_document PRIMARY KEY (idDocument)
+)ENGINE=INNODB;
+
+CREATE TABLE TERM (
+    idTerm INT AUTO_INCREMENT,
+    word VARCHAR(90) NOT NULL,
+    CONSTRAINT pk_term PRIMARY KEY (idTerm)
+)ENGINE=INNODB;
+
+CREATE TABLE POSTING (
+    idPosting INT AUTO_INCREMENT,
+    frequency INT NOT NULL,
+    idDocument INT NOT NULL,
+    idTerm INT NOT NULL,
+    CONSTRAINT pk_posting PRIMARY KEY (idPosting),
+    CONSTRAINT fk_posting_document FOREIGN KEY (idDocument)
+        REFERENCES DOCUMENT (idDocument)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_posting_term FOREIGN KEY (idTerm)
+        REFERENCES TERM (idTerm)
+        ON UPDATE CASCADE ON DELETE CASCADE
+)ENGINE=INNODB;
