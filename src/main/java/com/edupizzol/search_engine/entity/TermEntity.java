@@ -10,7 +10,7 @@ public class TermEntity{
     @Column(name = "idTerm")
     private Integer id;
 
-    @Column(name = "word")
+    @Column(name = "word", nullable = false, length = 90)
     private String word;
 
     public Integer getId(){
