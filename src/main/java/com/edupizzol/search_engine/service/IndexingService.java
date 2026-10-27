@@ -30,15 +30,17 @@ public class IndexingService {
         List<Document> documents = crawler.crawl(url);
 
         for(Document doc: documents){
+
+            Token token = new Token();
+            List<String> words = token.tokenizer(doc.getText());
+
             //salva cada um dos documentos
             DocumentEntity documentEntity = new DocumentEntity();
             documentEntity.setUrl(doc.getUrl());
             documentEntity.setTitle(doc.getTitle());
             documentEntity.setText(doc.getText());
+            documentEntity.setTotalTerms(words.size());
             DocumentEntity savedDocument = documentRepository.save(documentEntity);
-
-            Token token = new Token();
-            List<String> words = token.tokenizer(doc.getText());
 
             //faz sentido colocar todas as palavras em um map afim de diminuir a busca de O(N) para O(1) em tempo de compilacao e evitar acessos desnecessarios ao banco
             //pra comparacao, se fosse feito colocando cada uma no banco ia pedir acessos de busca e salvamento ao banco, o que ia demorar bem mais
