@@ -19,6 +19,9 @@ public class DocumentEntity{
     @Column(name = "textDocument", nullable = false, columnDefinition = "MEDIUMTEXT")
     private String text;
 
+    @Column(name="totalTerms", nullable = false)
+    private Integer totalTerms;
+
     public DocumentEntity(){}
 
     public Integer getId(){
@@ -52,4 +55,8 @@ public class DocumentEntity{
     public void setText(String text){
         this.text=text;
     }
+
+    public Integer getTotalTerms(){ return this.totalTerms; }
+
+    public void setTotalTerms(Integer totalTerms){ this.totalTerms = totalTerms; }
 }
