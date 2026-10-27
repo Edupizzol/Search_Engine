@@ -7,6 +7,7 @@ CREATE TABLE DOCUMENT (
     urlDocument VARCHAR(2000) NOT NULL,
     titleDocument VARCHAR(500) NOT NULL,
     textDocument MEDIUMTEXT NOT NULL,
+    totalTerms INT NOT NULL,
     CONSTRAINT pk_document PRIMARY KEY (idDocument)
 )ENGINE=INNODB;
 
